@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Skype_AdvRemover.Pages.RemoveAdv"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="350">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel Height="290" Width="290" VerticalAlignment="Top">
+                <TextBlock Text="Select Skype profile" Style="{StaticResource Heading2}" Margin="70,0" HorizontalAlignment="Center" />
+                <Grid >
+                    <StackPanel x:Name="MyStackPanel" Width="100" Height="190" VerticalAlignment="Top" Margin="95,10,95,0" />
+                </Grid>
+                <Button x:Name="btnRemoveAdv" Content="Remove Advertisements" Height="64" Click="button_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
