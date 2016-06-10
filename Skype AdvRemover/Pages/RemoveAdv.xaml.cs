@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skype_AdvRemover;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,23 @@ namespace Skype_AdvRemover.Pages
     /// </summary>
     public partial class RemoveAdv : UserControl
     {
+        SARemover Skype = new SARemover();
         public RemoveAdv()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 4; i++)
+            //SARemover Skype = new SARemover();
+
+            foreach (SkypeProfile profile in Skype.SkypeProfiles)
             {
-                CheckBox rb = new CheckBox() { Content = "Profile " + i, IsChecked = true };
+                CheckBox rb = new CheckBox() { Content = profile, IsChecked = true };
                 rb.Checked += (sender, args) =>
                 {
-                    Console.WriteLine("Pressed " + (sender as CheckBox).Tag);
+                    //Console.WriteLine("Pressed " + (sender as CheckBox).Tag);
+                    // profile.RemoveAdv();
                 };
                 rb.Unchecked += (sender, args) => { /* Do stuff */ };
-                rb.Tag = i;
+                rb.Tag = profile;
 
                 MyStackPanel.Children.Add(rb);
             }
@@ -40,15 +45,20 @@ namespace Skype_AdvRemover.Pages
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            SARemover Skype = new SARemover();
-            Result r = new Result();
-
-            r.txtResult.Text = "";
-            r.Show();
-
-            foreach (var item in Skype.Restart())
+            foreach (CheckBox item in MyStackPanel.Children)
             {
-                r.txtResult.Text += item;
+                if (item.IsChecked == true)
+                {
+
+                    Console.WriteLine("Removing Skype Advertisements from profile {0}.", Skype.GetSkypeProfile(item.Tag.ToString()).Name);
+                    Skype.GetSkypeProfile(item.Tag.ToString()).RemoveAdv();
+                }
+            }
+
+            if (RestartSkype.IsChecked == true)
+            {
+                Console.WriteLine("Skype will be restarted.");
+                Skype.Restart();
             }
         }
     }

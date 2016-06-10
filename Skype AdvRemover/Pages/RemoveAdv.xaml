@@ -13,7 +13,8 @@
                 <Grid >
                     <StackPanel x:Name="MyStackPanel" Width="100" Height="190" VerticalAlignment="Top" Margin="95,10,95,0" />
                 </Grid>
-                <Button x:Name="btnRemoveAdv" Content="Remove Advertisements" Height="64" Click="button_Click"/>
+                <CheckBox x:Name="RestartSkype" Content="Restart Skype" HorizontalAlignment="Center" IsChecked="True" Margin="40,0,40,10"/>
+                <Button x:Name="btnRemoveAdv" Content="Remove Advertisements" Height="37" Click="button_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

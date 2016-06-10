@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7A2F67D9-0BD8-46F2-A7C3-D3BCEFD4DA53}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Skype_AdvRemover</RootNamespace>
     <AssemblyName>Skype AdvRemover</AssemblyName>
